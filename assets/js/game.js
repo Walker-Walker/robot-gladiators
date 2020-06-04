@@ -14,19 +14,19 @@ console.log(playerName, playerAttack, playerHealth);
 
 console.log(enemyNames.length);
 
-if(playerHealth > 0) {
+// if(playerHealth > 0) {
 
- //let user know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
-    window.alert ("Welcome to Robot Gladiators! Round" + (i + 1));
-    // pick new enemy to fight based on the index of the enemyNames array
-    var pickedEnemyName = enemyNames [i];
-    // reset enemy Health before starting new fight 
-    enemyHealth = 50;
-    // use debugger to pause script from running and check what's going on at that moment in the code
-    //  debugger;
-        // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter
-        // fight(pickedEnemyName);
-    }
+//  //let user know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
+//     window.alert ("Welcome to Robot Gladiators! Round" + (i + 1));
+//     // pick new enemy to fight based on the index of the enemyNames array
+//     var pickedEnemyName = enemyNames [i];
+//     // reset enemy Health before starting new fight 
+//     enemyHealth = 50;
+//     // use debugger to pause script from running and check what's going on at that moment in the code
+//     //  debugger;
+//         // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter
+//         //  fight(pickedEnemyName);
+//     }
    
 
 for(var i = 0; i < enemyNames.length; i ++) {
@@ -35,6 +35,62 @@ for(var i = 0; i < enemyNames.length; i ++) {
     console.log(enemyNames[i] + " is at " + i + "index");
 }
 
+<<<<<<< HEAD
+=======
+//function to start a new game 
+
+var startGame = function() {
+ //reset player stats
+ playerHealth = 100;
+ playerAttack = 10;
+ playerMoney = 10;
+ 
+  for(var i = 0; i < enemyNames.length; i++) {
+  // after the loop ends, player is either out of health or enemies to fight, so run the endGame function
+  
+    if (playerHealth > 0) {
+      window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
+
+      var pickedEnemyName = enemyNames [i];
+
+      enemyHealth = 50;
+
+      fight(pickedEnemyName);
+    }
+    else {
+      window.alert("You have lost your robot in Battle! Game Over!");
+      break;
+      
+    }
+    endGame();
+  }
+}
+
+// function to end the entire game
+var endGame = function() {
+  // if player is still alive, player wins!
+  if (playerHealth > 0 ) {
+    window.alert("Great job, you've survived the game! You now have a score of " + playerMoney + "." );
+  }
+  else {
+    window.alert("You've lost your robot in battle");
+
+  }
+//   window.alert("The game has not ended. Let's see how you did!");
+     // ask player if they'd like to play again
+     var playAgainConfirm = window.confirm("Would you like to play again?");
+      console.log(playAgainConfirm);
+     if (playAgainConfirm) {
+       //restart the game
+       startGame();
+
+     }
+     else {
+       window.alert("Thank you for playing Robot Gladiators! Come back soon!");
+       
+     }
+};
+>>>>>>> develop
 
 var fight = function(enemyName) {
     while (playerHealth > 0 && enemyHealth > 0) {
@@ -51,7 +107,11 @@ var fight = function(enemyName) {
           window.alert(playerName + ' has decided to skip this fight. Goodbye!');
           // subtract money from playerMoney for skipping
           playerMoney = playerMoney - 10;
+<<<<<<< HEAD
           console.log("playerMoney", playerMoney)
+=======
+          console.log("playerMoney", playerMoney);
+>>>>>>> develop
           break;
         }
       }
@@ -92,6 +152,7 @@ var fight = function(enemyName) {
     }
   };
     
+<<<<<<< HEAD
   
 
 
@@ -104,3 +165,16 @@ var fight = function(enemyName) {
 
 
 //fight();
+=======
+
+
+
+    // for (var i = 0; i < enemyNames.length; i++) {
+    //     var pickedEnemyName = enemyNames[i];
+    //     enemyHealth = 50;
+    //     fight(pickedEnemyName);
+    // }
+
+// start the game when the page loads
+startGame();
+>>>>>>> develop
