@@ -110,22 +110,20 @@ console.log(enemyInfo.length);
 var shop = function () {
   // ask player what they'd like to do
   var shopOptionPrompt = window.prompt(
-    "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice."
+    "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE."
   );
+  shopOptionPrompt = parseInt(shopOptionPrompt);
   // use switch to carry out action
   switch (shopOptionPrompt) {
-    case "REFILL": // new case
-    case "refill":
+    case 1:
       playerInfo.refillHealth();
       break;
-    case "UPGRADE": // new case
-    case "upgrade":
+    case 2:
       playerInfo.upgradeAttack();
       break;
-    case "LEAVE"://new case
+    case 3:
     case "leave":
       window.alert("Leaving the store.");
-
       // do nothing, so function will end
       break;
     default:
@@ -220,7 +218,7 @@ var fightOrSkip = function () {
   // if user picks "skip" confirm and then stop the loop
   promptFight = promptFight.toLowerCase();
 
-  if (promptFight === "skip" ) {
+  if (promptFight === "skip") {
     // confirm user wants to skip
     var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
@@ -232,10 +230,10 @@ var fightOrSkip = function () {
 
       // return true if user wants to leave
       return true;
-   
+
       // shop();
     }
-    
+
   }
   return false;
 }
@@ -249,7 +247,7 @@ var fight = function (enemy) {
       // if true, leave fight by breaking loop
       break;
     }
-     // fight logic
+    // fight logic
 
 
     // generate random damage value based on player's attack power
